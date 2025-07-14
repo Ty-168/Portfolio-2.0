@@ -18,10 +18,10 @@ export const Timeline = ({
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 50%"],
+    offset: ["start end", "end start"],
   });
-  const cappedHeight = useTransform(scrollYProgress, (v) =>
-    Math.min(v * height, height)
+  const cappedHeight = useTransform(scrollYProgress,
+    [0, 1], [0, height]
   );
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
@@ -42,7 +42,7 @@ export const Timeline = ({
 
             <div className="relative pr-4 w-full ">
               <h3
-                className="text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-white">
+                className="text-lg sm:text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-white">
                 {item.title}
               </h3>
               {item.content}{" "}
@@ -59,7 +59,7 @@ export const Timeline = ({
               height: cappedHeight,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full" />
+            className="absolute inset-x-0 top-0 -z-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full" />
         </div>
       </div>
     </div>

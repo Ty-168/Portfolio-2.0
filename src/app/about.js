@@ -8,17 +8,18 @@ export function About(){
     return(
         <div id="about" className="flex min-h-screen">
     
-            <div className="sticky top-5 h-[100vh] flex items-center justify-center w-1/2">
+            <div className="sticky top-5 h-[100vh] flex items-center justify-center w-1/2" >
             <Image
                 src="/assets/myPhoto.jpg"
                 alt="mypicture"
                 width={400}
                 height={400}
-                className="rounded-2xl object-cover"
+                className="rounded-2xl object-cover hidden lg:block"
+                
             />
             </div>
 
-            <div className="flex-1 flex flex-col items-start justify-start space-y-20 px-10 py-20">
+            <div className="lg:flex-1 flex flex-col items-start justify-start space-y-20 px-10 py-20">
                 <AboutMe />
                 <Skill />
                 <Education/>
@@ -29,9 +30,9 @@ export function About(){
 
 function AboutMe(){
     return(
-        <section className="flex flex-col justify-center items-start w-2/3 h-screen text-left">
-            <h1 className="text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">About Me</h1>
-            <p className="text-lg font-light leading-relaxed tracking-wider">
+        <section className="flex flex-col justify-center items-start w-fit sm:w-2/3 h-screen text-left">
+            <h1 className="text-3xl sm:text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">About Me</h1>
+            <p className="text-base sm:text-lg font-light leading-relaxed tracking-wider">
                 My name is Kity Lim, a student from Cambodia.
                 Currently, I am pursuing a Computer Science major at the Institute of Technology of Cambodia. 
                 Over the past two years, I have learned various programming languages, including C, C++, and Java, which have built my software development skills. 
@@ -92,14 +93,14 @@ function Skill(){
         },
     ];
     return(
-        <section className="flex flex-col justify-center items-start w-full h-screen text-left">
-            <h1 className="text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">Skill</h1>
+        <section className="flex flex-col justify-center items-start w-full h-fit text-left">
+            <h1 className="text-3xl md:text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">Skill</h1>
             <Tabs defaultValue="soft-skill">
                 <TabsList>
                     <TabsTrigger value="soft-skill">Soft Skill</TabsTrigger>
                     <TabsTrigger value="programming">Programming Language</TabsTrigger>
                 </TabsList>
-                <TabsContent value="soft-skill" className={'flex flex-col gap-10 w-[400px]'}>
+                <TabsContent value="soft-skill" className={'max-w-4xl flex flex-col gap-10'}>
                     {softSkill.map((skill, index) => (
                         <SoftSkillCard
                         key={index}
@@ -108,7 +109,7 @@ function Skill(){
                         />
                     ))}
                 </TabsContent>
-                <TabsContent value="programming" className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10'}>
+                <TabsContent value="programming" className={'max-w-4xl grid grid-cols-1 sm:grid-cols-2 gap-10'}>
                     {programLanguage.map((lang, index) => (
                         <ProgramCard
                         key={index}
@@ -128,7 +129,7 @@ function Education(){
             title:"February 2023 - Now",
             content:(
                 <div className="flex flex-col gap-3">
-                    <h1 className="text-lg font-light">Institute Of Technology Of Cambodia</h1>
+                    <h1 className="text-base sm:text-lg font-light">Institute Of Technology Of Cambodia</h1>
                     <Image
                         src="/assets/itc.jpg"
                         alt="school pic"
@@ -143,7 +144,7 @@ function Education(){
             title:"January 2016 - December 2022",
             content:(
                 <div className="flex flex-col gap-3">
-                    <h1 className="text-lg font-light">BakTouk High School</h1>
+                    <h1 className="text-base sm:text-lg font-light">BakTouk High School</h1>
                     <Image
                         src="/assets/baktouk.jpg"
                         alt="school pic"
@@ -158,7 +159,7 @@ function Education(){
 
     return(
         <section className="h-screen">
-            <h1 className="inline-block text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">Education</h1>
+            <h1 className="inline-block text-3xl sm:text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">Education</h1>
             <Timeline data={education}/>
         </section>
     )

@@ -1,5 +1,6 @@
 import { IconBrandFacebook, IconBrandGithub, IconBrandTelegram } from "@tabler/icons-react";
 import Image from "next/image";
+
 const iconSocial = [
     {
         icon: <IconBrandFacebook stroke={1} size={40}/>,
@@ -17,17 +18,17 @@ const iconSocial = [
 
 export function Home(){
     return(
-        <div id="home" className="relative flex flex-col justify-center items-center w-full h-screen gap-5">
+        <div id="home" className="relative flex flex-col justify-center items-center w-full h-screen gap-5 animate__animated animate__fadeIn animate__fast">
             <Image
                 src="/assets/profile.png"
                 alt="profile-picture"
                 width={100}
                 height={100}
-                className="rounded-full h-52 w-52 object-top object-cover"
+                className="rounded-full h-32 w-32 sm:h-52 sm:w-52 object-top object-cover"
             />
 
-            <span className="text-5xl font-bold">Hi, I'm Kity</span>
-            <p className="w-1/3 text-center text-base font-light">
+            <span className="text-3xl sm:text-5xl font-bold text-accent">Hi, I'm Kity</span>
+            <p className="w-1/2 sm:w-1/3 text-center text-base font-light text-accent">
                 I am genuinely enthusiastic about learning coding and exploring technology. 
                 I focus on designing and building effective solutions to real-world problems.
             </p>
@@ -38,7 +39,7 @@ export function Home(){
                         href={social.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-white hover:text-blue-500 transition-colors"
+                        className="text-white hover:text-[var(--hover)] transition-colors"
                     >
                     {social.icon}
                     </a>
@@ -46,7 +47,7 @@ export function Home(){
             </div>
 
             <a 
-                className="absolute top-8 right-10 shadow-[inset_0_0_0_2px_#616467] text-black px-10 py-4 rounded-2xl text-base tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200"
+                className="absolute top-8 right-5 sm:right-10 text-xs px-5 py-2 border  text-black sm:px-10 sm:py-4 rounded-2xl sm:text-base tracking-widest uppercase font-bold bg-transparent hover:bg-[var(--hover)] hover:text-white dark:text-neutral-200 transition duration-200"
                 href="/LIM Kity CV.pdf" download
             >
                 Download CV

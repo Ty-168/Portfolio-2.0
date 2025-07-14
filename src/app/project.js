@@ -22,9 +22,9 @@ export function Project(){
         },
     ]
     return(
-        <div id="project" className="flex flex-col items-center min-h-screen z-40">
+        <div id="project" className="flex flex-col items-center min-h-screen bg-transparent">
             <h1 className="text-5xl font-bold mb-10 border-b-4 border-black dark:border-white">Project</h1>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-4" >
                 {projectData.map((project, index) => (
                     <ProjectCard
                         key={index}
